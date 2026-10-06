@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fffdf7">
+  <meta name="description" content="A short brief for your own Crushboard. Your names, your words, your song. Send it to huurns on Telegram.">
+  <title>Your version of Crushboard</title>
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./styles.css">
+  <script type="module" src="./app.js"></script>
+</head>
+<body>
+  <header class="header"><a href="./" class="brand"><span aria-hidden="true">♥</span>crushboard<span class="brand-dot">.</span></a><a class="demo-link" href="https://crushboard.pages.dev/" target="_blank" rel="noopener noreferrer">See the original</a></header>
+  <main class="layout">
+    <section class="intro" aria-labelledby="title">
+      <span class="eyebrow">a little courage. a very real crush.</span>
+      <h1 id="title">Your crush.<br><span>Your version.</span></h1>
+      <p>Same little board. Your names, your words, your song. Give us the basics and we’ll make it feel like you.</p>
+      <div class="mini-board" aria-hidden="true">
+        <div class="mini-note"><span class="tape"></span><span class="note-small">a tiny reminder</span><strong>shoot<br>your shot.</strong><svg viewBox="0 0 170 18"><path d="M3 10Q83 0 167 11" fill="none" stroke="#ef7853" stroke-width="4" stroke-linecap="round"/></svg><span>we’ve got the website part.</span></div>
+        <div class="mini-flower"><svg viewBox="0 0 150 190"><path d="M75 126V46M75 126 40 75M75 126l38-60" stroke="#346948" stroke-width="5" fill="none"/><path d="M74 100Q33 69 28 101q28 19 46-1m6-15q37-23 44 0-21 23-44 0" fill="#4b8d57"/><g class="bloom"><path d="M75 22c-26-30-48 1-19 17-35 12-17 46 11 27 4 37 39 29 29-4 33 8 40-26 6-30 18-30-16-45-27-10Z" fill="#fff1ab"/><circle cx="76" cy="44" r="13" fill="#e78139"/></g><path d="M47 126h57l9 49q-39 16-74 0Z" fill="#3b53df"/><path d="M53 145q23-13 46 0" stroke="#fff7e7" fill="none" stroke-width="3"/></svg><span>made just for them.</span></div>
+      </div>
+      <div class="included"><span>What stays in your version</span><p>Animated cards · Three little games · Yes / No · Your Telegram chat</p></div>
+    </section>
+    <section class="order-card" aria-labelledby="form-title">
+      <div class="card-heading"><span class="badge">YOUR LITTLE BRIEF</span><h2 id="form-title">Okay, who’s the lucky one?</h2><p>Only 3 things are required. The rest is up to you.</p></div>
+      <form id="order-form">
+        <div class="name-row"><label>Your name <span class="required">*</span><input name="from" id="from" autocomplete="given-name" placeholder="What they call you" required maxlength="60"></label><label>Their name <span class="required">*</span><input name="to" id="to" autocomplete="off" placeholder="Your favorite person" required maxlength="60"></label></div>
+        <label>Your Telegram <span class="required">*</span><div class="username-field"><span aria-hidden="true">@</span><input name="telegram" id="telegram" placeholder="your_username" autocomplete="off" autocapitalize="none" spellcheck="false" required maxlength="33" aria-describedby="telegram-help"></div><span class="help" id="telegram-help">Their Yes button will open your chat. Enter your username, not a phone number.</span></label>
+        <label>Your confession <span class="optional">(opsional)</span><textarea name="message" id="message" rows="4" maxlength="1400" placeholder="That thing you’ve been wanting to say…" aria-describedby="message-help"></textarea><span class="help" id="message-help">Leave blank to use the original confession with your names.</span></label>
+        <label>Their Yes reply <span class="optional">(opsional)</span><textarea name="reply" id="reply" rows="3" maxlength="600" placeholder="I saw your board, finished our little side quest, and yeah... I like you too. Let’s make that first date happen." aria-describedby="reply-help"></textarea><span class="help" id="reply-help">The ready-to-send message in their Telegram when they tap Yes. Leave blank to use the example with your names.</span></label>
+        <label>Your song title <span class="optional">(opsional)</span><input name="song" id="song" maxlength="120" placeholder="Best Part" aria-describedby="song-help"><span class="help" id="song-help">Just the title. Send the MP3 in Telegram after your brief.</span></label>
+        <details class="extras card-extras"><summary>Change the card wording? (opsional)</summary><div class="extras-content"><p class="help">Same assets, same games. Only fill the parts you want to change. Blank fields follow the original with your names.</p><label>Main heading <span class="optional">(opsional)</span><input name="headline" id="headline" maxlength="120" placeholder="[Their name], I like you. Like, like you."></label><div id="card-fields"></div></div></details>
+        <details class="extras"><summary>Photos or a little extra detail? (opsional)</summary><div class="extras-content"><label>Photo folder link <span class="optional">(opsional)</span><input type="url" name="photos" id="photos" maxlength="400" placeholder="https://drive.google.com/…"><span class="help">Include their card photos and your avatar. Or just send the pictures in Telegram.</span></label><label>Anything we should know? <span class="optional">(opsional)</span><textarea name="notes" id="notes" maxlength="400" rows="3" placeholder="An inside joke, a caption, or a small request…"></textarea></label></div></details>
+        <p id="form-error" class="error" role="alert" hidden></p>
+        <button class="primary" type="submit">Review my brief <span aria-hidden="true">♥</span></button>
+        <p class="form-footnote">Next stop: a ready-to-send message to <a href="https://t.me/huurns" target="_blank" rel="noopener noreferrer">@huurns</a>. Photos and audio can follow there.</p>
+      </form>
+      <section class="review" id="review" hidden aria-labelledby="review-title" tabindex="-1"><span class="badge">LOOKING GOOD</span><h2 id="review-title">Your brief is ready.</h2><p id="review-help">Give it a quick look, then send it over.</p><pre id="brief-preview"></pre><a class="primary" id="telegram-send" target="_blank" rel="noopener noreferrer">Send via Telegram <span aria-hidden="true">♥</span></a><div id="message-parts"></div><p class="form-footnote">Telegram opens with your message ready. Tap Send in the chat to submit your order. Then send Photo 1, Photo 2, your avatar, and the MP3 as files in the same chat.</p><div class="review-tools"><button type="button" id="edit-brief">Edit my brief</button><button type="button" id="copy-brief">Copy message</button></div><p id="copy-status" class="help" role="status"></p></section>
+      <noscript><p class="error">Enable JavaScript to prepare your brief, or message <a href="https://t.me/huurns">@huurns</a> directly.</p></noscript>
+    </section>
+  </main>
+  <footer>less overthinking. more shooting your shot.<span>crushboard, by huurns.</span></footer>
+</body>
+</html>
